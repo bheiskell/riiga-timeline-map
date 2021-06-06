@@ -1,9 +1,99 @@
 <html>
-  <body>
-    <h1>Riiga Map</h1>
+  <body style="text-align: center; line-height: 3em;">
+    <input type="button" id="prev" value="<" style="line-height: 3em; width: 3em;" />
+    <span id="title" style="display:inline-block; width:100px; text-align: center;"></span>
+    <input type="button" id="next" value=">" style="line-height: 3em; width: 3em;" />
     <div id="map"></div>
     <script type="application/javascript">
-      document.getElementById("map").innerHTML = "Temp";
+      const dates = [
+        '2800BD',
+        '2600BD',
+        '2400BD',
+        '2200BD',
+        '2000BD',
+        '1900BD',
+        '1800BD',
+        '1700BD',
+        '1600BD',
+        '1500BD',
+        '1400BD',
+        '1300BD',
+        '1200BD',
+        '1100BD',
+        '1000BD',
+        '950BD',
+        '900BD',
+        '850BD',
+        '800BD',
+        '750BD',
+        '700BD',
+        '650BD',
+        '600BD',
+        '550BD',
+        '500BD',
+        '450BD',
+        '400BD',
+        '350BD',
+        '300BD',
+        '250BD',
+        '200BD',
+        '150BD',
+        '100BD',
+        '50BD',
+        '0BD',
+        '50AL',
+        '100AL',
+        '150AL',
+        '200AL',
+        '250AL',
+        '300AL',
+        '350AL',
+        '400AL',
+        '450AL',
+        '500AL',
+        '550AL',
+        '600AL',
+        '650AL',
+        '700AL',
+        '750AL',
+        '800AL',
+        '850AL',
+        '900AL',
+        '950AL',
+        '1000AL',
+      ];
+const map = document.getElementById("map");
+const title = document.getElementById("title");
+
+let current = 0;
+for(var i = 0; i < dates.length; i++) {
+  var img = document.createElement("img");
+  img.src = "maps/" + dates[i] + ".jpg";
+  img.style.display = "none";
+  map.appendChild(img);
+
+        if (dates[i] == "0BD") {
+          current = i;
+        }
+      }
+      map.childNodes[current].style.display = "inline-block";
+      title.textContent = dates[current];
+
+      document.getElementById("prev").onclick = () => {
+        if (current <= 0) { return; }
+        map.childNodes[current].style.display = "none";
+        current--;
+        map.childNodes[current].style.display = "inline-block";
+        title.textContent = dates[current];
+
+      };
+      document.getElementById("next").onclick = () => {
+        if (current >= dates.length - 1) { return; }
+        map.childNodes[current].style.display = "none";
+        current++;
+        map.childNodes[current].style.display = "inline-block";
+        title.textContent = dates[current];
+      };
     </script>
   </body>
 </html>
