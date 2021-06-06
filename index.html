@@ -62,15 +62,15 @@
         '950AL',
         '1000AL',
       ];
-const map = document.getElementById("map");
-const title = document.getElementById("title");
-
-let current = 0;
-for(var i = 0; i < dates.length; i++) {
-  var img = document.createElement("img");
-  img.src = "maps/" + dates[i] + ".jpg";
-  img.style.display = "none";
-  map.appendChild(img);
+      const map = document.getElementById("map");
+      const title = document.getElementById("title");
+      
+      let current = 0;
+      for(var i = 0; i < dates.length; i++) {
+        var img = document.createElement("img");
+        img.src = "maps/" + dates[i] + ".jpg";
+        img.style.display = "none";
+        map.appendChild(img);
 
         if (dates[i] == "0BD") {
           current = i;
